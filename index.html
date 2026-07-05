@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Amara Microfinance — CBK-aligned group lending advisory for Kenyan MFIs and SACCOs. We fix portfolio quality through policy redesign and operational excellence.">
+<meta name="keywords" content="microfinance, Kenya, group lending, MFI, SACCO, CBK, credit advisory">
+<meta property="og:title" content="Amara Microfinance — Group Lending, Done Right">
+<meta property="og:description" content="CBK-aligned group lending advisory for Kenyan MFIs and SACCOs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amaramicrofinance.co.ke">
+<meta name="theme-color" content="#2E2E33">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'><circle cx='13' cy='13' r='11.5' stroke='%23EAB308' stroke-width='1.4'/><circle cx='13' cy='5.2' r='1.6' fill='%23EAB308'/><circle cx='19.8' cy='9.6' r='1.6' fill='%237C5CBF'/><circle cx='19.8' cy='16.4' r='1.6' fill='%23EAB308'/><circle cx='13' cy='20.8' r='1.6' fill='%237C5CBF'/><circle cx='6.2' cy='16.4' r='1.6' fill='%23EAB308'/><circle cx='6.2' cy='9.6' r='1.6' fill='%23EAB308'/></svg>">
+<title>Amara Microfinance — Group Lending, Done Right</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink: #2E2E33;
+    --ink-2: #242428;
+    --gold: #EAB308;
+    --gold-dim: #B9890A;
+    --clay: #7C5CBF;
+    --bone: #D6D6D9;
+    --bone-dim: #C4C4C8;
+    --leaf: #8A6FC9;
+    --charcoal: #1F1E22;
+    --line: rgba(31,30,34,0.18);
+    --line-dark: rgba(214,214,217,0.16);
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Work Sans', sans-serif;
+    background:var(--bone);
+    color:var(--charcoal);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Spectral', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.02em;
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  img,svg{display:block; max-width:100%;}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  @media (max-width:640px){
+    .wrap{padding:0 20px;}
+  }
+
+  :focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  /* ---------- NAV ---------- */
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(214,214,217,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:18px; padding-bottom:18px;
+  }
+
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Spectral', serif; font-weight:700; font-size:1.15rem;
+    color:var(--ink);
+  }
+
+  .logo .mark{
+    width:26px; height:26px; flex:none;
+  }
+
+  .navlinks{
+    display:flex; gap:32px;
+    font-size:0.92rem;
+    font-weight:500;
+  }
+
+  .navlinks a{
+    position:relative;
+    padding-bottom:4px;
+    color:var(--ink);
+    opacity:0.75;
+    transition:opacity .15s;
+  }
+
+  .navlinks a:hover{opacity:1;}
+
+  .navlinks a::after{
+    content:'';
+    position:absolute; left:0; bottom:0;
+    width:0; height:2px; background:var(--gold);
+    transition:width .2s ease;
+  }
+
+  .navlinks a:hover::after{width:100%;}
+
+  @media (max-width:720px){
+    .navlinks{display:none;}
+  }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--ink);
+    color:var(--bone);
+    padding:11px 22px;
+    border-radius:2px;
+    font-size:0.9rem;
+    font-weight:500;
+    border:1px solid var(--ink);
+    transition:background .15s, color .15s;
+    cursor:pointer;
+  }
+
+  .btn:hover{background:var(--gold); border-color:var(--gold); color:var(--ink);}
+
+  .btn-ghost{
+    background:transparent;
+    color:var(--bone);
+    border:1px solid var(--line-dark);
+  }
+  .btn-ghost:hover{background:var(--bone); color:var(--ink); border-color:var(--bone);}
+
+  /* ---------- HERO ---------- */
+
+  .hero{
+    background:var(--ink);
+    color:var(--bone);
+    padding:88px 0 110px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 1fr;
+    gap:56px;
+    align-items:center;
+  }
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr; gap:64px;}
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:22px;
+    display:flex; align-items:center; gap:10px;
+  }
+
+  .eyebrow::before{
+    content:'';
+    width:22px; height:1px; background:var(--gold);
+  }
+
+  .hero h1{
+    font-size:clamp(2.3rem, 4.4vw, 3.6rem);
+    line-height:1.08;
+    margin-bottom:24px;
+  }
+
+  .hero h1 em{
+    font-style:normal;
+    color:var(--gold);
+  }
+
+  .hero p.lede{
+    font-size:1.08rem;
+    color:rgba(214,214,217,0.78);
+    max-width:480px;
+    margin-bottom:34px;
+  }
+
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+
+  /* signature: the loan cycle circle */
+
+  .cycle-wrap{
+    position:relative;
+    display:flex; justify-content:center;
+  }
+
+  .cycle-svg{width:100%; max-width:400px;}
+
+  .cycle-ring{
+    animation:spin 60s linear infinite;
+    transform-origin:200px 200px;
+  }
+
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  .cycle-center-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    fill:var(--bone);
+    opacity:0.6;
+    letter-spacing:0.08em;
+  }
+
+  .node-label{
+    font-family:'Work Sans', sans-serif;
+    font-size:12.5px;
+    font-weight:500;
+    fill:var(--bone);
+  }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+
+  section{padding:96px 0;}
+
+  .section-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+
+  .section-head .eyebrow{color:var(--clay);}
+
+  .section-head h2{
+    font-size:clamp(1.7rem, 3vw, 2.3rem);
+    color:var(--ink);
+  }
+
+  .section-head p{
+    margin-top:14px;
+    color:rgba(35,32,27,0.72);
+    font-size:1.02rem;
+  }
+
+  /* ---------- CONTEXT / PROBLEM ---------- */
+
+  .context{background:var(--bone-dim);}
+
+  .context-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+  }
+
+  @media (max-width:800px){ .context-grid{grid-template-columns:1fr;} }
+
+  .context-card{
+    background:var(--bone);
+    border:1px solid var(--line);
+    padding:30px 28px;
+  }
+
+  .context-card .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--clay);
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    margin-bottom:12px;
+    display:block;
+  }
+
+  .context-card h3{font-size:1.15rem; margin-bottom:10px; color:var(--ink);}
+  .context-card p{color:rgba(35,32,27,0.72); font-size:0.96rem;}
+
+  /* ---------- SERVICES ---------- */
+
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+
+  @media (max-width:900px){ .services-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:600px){ .services-grid{grid-template-columns:1fr;} }
+
+  .service{
+    display:block;
+    background:var(--bone);
+    padding:34px 28px;
+    transition:background .18s;
+    cursor:pointer;
+  }
+
+  .service:hover{background:var(--bone-dim);}
+  .service:hover h3{color:var(--clay);}
+
+  .service .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--gold-dim);
+    display:block;
+    margin-bottom:16px;
+  }
+
+  .service h3{
+    font-size:1.08rem;
+    color:var(--ink);
+    margin-bottom:10px;
+  }
+
+  .service p{
+    font-size:0.92rem;
+    color:rgba(35,32,27,0.68);
+  }
+
+  /* ---------- CYCLE / PROCESS (numbered — genuinely sequential) ---------- */
+
+  .process{background:var(--ink); color:var(--bone);}
+
+  .process .section-head .eyebrow{color:var(--gold);}
+  .process .section-head h2{color:var(--gold);}
+  .process .section-head p{color:rgba(214,214,217,0.68);}
+
+  .process-list{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:0;
+    border-top:1px solid var(--line-dark);
+  }
+
+  @media (max-width:960px){ .process-list{grid-template-columns:1fr; border-top:none;} }
+
+  .process-step{
+    padding:28px 20px 28px 0;
+    border-right:1px solid var(--line-dark);
+    position:relative;
+  }
+
+  .process-step:last-child{border-right:none;}
+
+  @media (max-width:960px){
+    .process-step{border-right:none; border-bottom:1px solid var(--line-dark); padding:22px 0;}
+  }
+
+  .process-step .step-no{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--gold);
+    display:block;
+    margin-bottom:14px;
+  }
+
+  .process-step h3{
+    font-size:1.02rem;
+    margin-bottom:8px;
+    color:var(--gold);
+  }
+
+  .process-step p{
+    font-size:0.88rem;
+    color:rgba(214,214,217,0.65);
+  }
+
+  /* ---------- TRUST / CBK ---------- */
+
+  .trust{
+    background:var(--bone);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+
+  .trust-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+
+  @media (max-width:800px){ .trust-grid{grid-template-columns:1fr;} }
+
+  .trust-list{list-style:none; margin-top:20px;}
+  .trust-list li{
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    display:flex; gap:14px;
+    font-size:0.95rem;
+    color:rgba(35,32,27,0.78);
+  }
+  .trust-list li:last-child{border-bottom:none;}
+  .trust-list .mark{color:var(--leaf); font-family:'IBM Plex Mono',monospace; flex:none;}
+
+  /* ---------- ABOUT ---------- */
+
+  .about{background:var(--bone-dim);}
+
+  .about-grid{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:48px;
+    align-items:start;
+  }
+
+  @media (max-width:700px){ .about-grid{grid-template-columns:1fr;} }
+
+  .about-mark{
+    width:100%;
+    aspect-ratio:1;
+    background:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .about-mark svg{width:58%;}
+
+  .about-copy h2{font-size:1.6rem; color:var(--ink); margin-bottom:6px;}
+  .about-copy .role{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    color:var(--clay);
+    display:block;
+    margin-bottom:20px;
+  }
+  .about-copy p{color:rgba(35,32,27,0.75); margin-bottom:14px; max-width:640px;}
+
+  .about-stats{
+    display:flex; gap:40px; margin-top:26px; flex-wrap:wrap;
+  }
+  .about-stats .stat-num{
+    font-family:'Spectral', serif; font-weight:700; font-size:1.9rem; color:var(--ink);
+    display:block;
+  }
+  .about-stats .stat-label{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+    color:rgba(35,32,27,0.6); text-transform:uppercase; letter-spacing:0.06em;
+  }
+
+  /* ---------- CONTACT ---------- */
+
+  .contact{
+    background:var(--ink);
+    color:var(--bone);
+  }
+
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+  }
+
+  @media (max-width:800px){ .contact-grid{grid-template-columns:1fr;} }
+
+  .contact h2{font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:16px; color:var(--gold);}
+  .contact p.lede{color:rgba(214,214,217,0.72); max-width:420px; margin-bottom:8px;}
+
+  .contact-detail{
+    margin-top:28px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .contact-detail a{
+    font-size:1rem;
+    border-bottom:1px solid var(--line-dark);
+    padding-bottom:8px;
+    width:fit-content;
+    transition:border-color .15s, color .15s;
+  }
+  .contact-detail a:hover{border-color:var(--gold); color:var(--gold);}
+
+  form{display:flex; flex-direction:column; gap:16px;}
+
+  .field{display:flex; flex-direction:column; gap:6px;}
+  .field label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:rgba(214,214,217,0.6);
+  }
+  .field input, .field textarea{
+    background:transparent;
+    border:none;
+    border-bottom:1px solid var(--line-dark);
+    color:var(--bone);
+    font-family:'Work Sans', sans-serif;
+    font-size:0.98rem;
+    padding:8px 2px;
+    resize:none;
+  }
+  .field input:focus, .field textarea:focus{
+    border-color:var(--gold);
+    outline:none;
+  }
+  .field input::placeholder, .field textarea::placeholder{color:rgba(214,214,217,0.35);}
+
+  form .btn{align-self:flex-start; margin-top:6px;}
+
+  .form-success{
+    color:var(--gold);
+    font-size:0.9rem;
+    margin-top:8px;
+    display:none;
+  }
+
+  .form-success.show{display:block;}
+
+  /* ---------- FOOTER ---------- */
+
+  footer{
+    background:var(--ink);
+    border-top:1px solid var(--line-dark);
+    color:rgba(214,214,217,0.55);
+    padding:28px 0;
+    font-size:0.82rem;
+  }
+  footer .wrap{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  }
+
+  /* reveal on scroll */
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="logo" aria-label="Amara Microfinance Home">
+      <svg class="mark" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+        <circle cx="13" cy="13" r="11.5" stroke="#EAB308" stroke-width="1.4"/>
+        <circle cx="13" cy="5.2" r="1.6" fill="#EAB308"/>
+        <circle cx="19.8" cy="9.6" r="1.6" fill="#7C5CBF"/>
+        <circle cx="19.8" cy="16.4" r="1.6" fill="#EAB308"/>
+        <circle cx="13" cy="20.8" r="1.6" fill="#7C5CBF"/>
+        <circle cx="6.2" cy="16.4" r="1.6" fill="#EAB308"/>
+        <circle cx="6.2" cy="9.6" r="1.6" fill="#EAB308"/>
+      </svg>
+      Amara Microfinance
+    </a>
+    <div class="navlinks" role="navigation" aria-label="Main navigation">
+      <a href="#approach">Approach</a>
+      <a href="#services">Services</a>
+      <a href="#trust">Compliance</a>
+      <a href="#about">About</a>
+    </div>
+    <a href="#contact" class="btn">Book a call</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero section">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Nairobi &middot; Microfinance Consultancy</span>
+        <h1>Group lending fails on <em>design</em>, not on discipline.</h1>
+        <p class="lede">Amara Microfinance helps CBK-licensed MFIs and SACCOs fix the mechanics of group lending — from formation rules to repayment structure — so portfolio quality holds as branches scale.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn">Book a call</a>
+          <a href="#approach" class="btn btn-ghost">See the loan cycle</a>
+        </div>
+      </div>
+
+      <div class="cycle-wrap" aria-label="Group lending cycle diagram">
+        <svg class="cycle-svg" viewBox="0 0 400 400" role="img">
+          <circle cx="200" cy="200" r="150" stroke="rgba(214,214,217,0.14)" stroke-width="1"/>
+          <text x="200" y="196" text-anchor="middle" class="cycle-center-label">GROUP LENDING</text>
+          <text x="200" y="212" text-anchor="middle" class="cycle-center-label">CYCLE</text>
+
+          <g class="cycle-ring">
+            <g stroke="rgba(234,179,8,0.55)" stroke-width="1" fill="none">
+              <polygon points="200,60 321,130 321,270 200,340 79,270 79,130"/>
+            </g>
+            <g>
+              <circle cx="200" cy="60" r="5" fill="#EAB308"/>
+              <circle cx="321" cy="130" r="5" fill="#7C5CBF"/>
+              <circle cx="321" cy="270" r="5" fill="#EAB308"/>
+              <circle cx="200" cy="340" r="5" fill="#7C5CBF"/>
+              <circle cx="79" cy="270" r="5" fill="#EAB308"/>
+              <circle cx="79" cy="130" r="5" fill="#EAB308"/>
+            </g>
+          </g>
+
+          <text x="200" y="44" text-anchor="middle" class="node-label">Formation</text>
+          <text x="340" y="126" text-anchor="start" class="node-label">Training</text>
+          <text x="340" y="274" text-anchor="start" class="node-label">Disbursement</text>
+          <text x="200" y="364" text-anchor="middle" class="node-label">Repayment</text>
+          <text x="60" y="274" text-anchor="end" class="node-label">Review</text>
+          <text x="60" y="126" text-anchor="end" class="node-label">Renewal</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEXT -->
+  <section class="context" aria-label="Problem statement section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">The problem</span>
+        <h2>Most Kenyan MFIs inherit a group lending model — few ever redesign it</h2>
+        <p>Group lending policy is usually copied from a founding template and left untouched as the institution grows. What worked for 3 branches under close supervision quietly breaks down at 15, and portfolio-at-risk becomes a lagging symptom of a design problem no one is diagnosing.</p>
+      </div>
+      <div class="context-grid">
+        <div class="context-card reveal">
+          <span class="tag">Symptom</span>
+          <h3>PAR creeps up branch by branch</h3>
+          <p>Group guarantees weaken as centres grow past their original size, group formation rules aren't enforced consistently, and loan officers are left to patch the gaps manually.</p>
+        </div>
+        <div class="context-card reveal">
+          <span class="tag">Root cause</span>
+          <h3>The policy was never built for scale</h3>
+          <p>Group size, meeting cadence, guarantor liability, and top-up rules are usually set once at launch and rarely revisited against what field data is actually showing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" aria-label="Services section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">What we do</span>
+        <h2>Five ways we work with an MFI</h2>
+        <p>Engagements are scoped to a specific portfolio problem, not sold as a generic transformation programme.</p>
+      </div>
+      <div class="services-grid reveal">
+        <a class="service" href="#services">
+          <span class="num">01</span>
+          <h3>Credit &amp; administration review</h3>
+          <p>A structured audit of underwriting, approval limits, and file discipline against what the portfolio data is actually showing.</p>
+        </a>
+        <a class="service" href="#services">
+          <span class="num">02</span>
+          <h3>Group lending policy design</h3>
+          <p>Rebuilding group formation, guarantee structure, and centre governance rules so they hold as branches multiply.</p>
+        </a>
+        <a class="service" href="#services">
+          <span class="num">03</span>
+          <h3>Operational excellence</h3>
+          <p>Tightening the day-to-day: disbursement turnaround, collection routines, and branch reporting cadence.</p>
+        </a>
+        <a class="service" href="#services">
+          <span class="num">04</span>
+          <h3>Staff training</h3>
+          <p>Field-level training for loan officers and branch managers on group appraisal, early-warning signs, and recovery conversations.</p>
+        </a>
+        <a class="service" href="#services">
+          <span class="num">05</span>
+          <h3>Growth strategy</h3>
+          <p>Sequencing branch expansion, new product design, and staffing against realistic capacity rather than target-driven guesswork.</p>
+        </a>
+      </div>
+      <p style="margin-top:28px; text-align:center;"><a href="#contact" style="border-bottom:1px solid var(--line); padding-bottom:3px; font-size:0.92rem;">Get more details →</a></p>
+    </div>
+  </section>
+
+  <!-- PROCESS / CYCLE (genuinely sequential, so numbered) -->
+  <section class="process" id="approach" aria-label="Loan cycle stages section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">The loan cycle</span>
+        <h2>Every fix traces back to one of five stages</h2>
+        <p>Group lending breaks down at a specific, identifiable stage. We start by locating which one, rather than redesigning what already works.</p>
+      </div>
+      <div class="process-list reveal">
+        <div class="process-step">
+          <span class="step-no">01 — FORMATION</span>
+          <h3>Group formation</h3>
+          <p>Who joins, group size limits, and screening for repayment capacity before a group is registered.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-no">02 — TRAINING</span>
+          <h3>Pre-disbursement training</h3>
+          <p>Group members understand liability, meeting rules, and consequences of default before money moves.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-no">03 — DISBURSEMENT</span>
+          <h3>Loan disbursement</h3>
+          <p>Approval limits, loan sizing against group savings, and turnaround time from application to payout.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-no">04 — REPAYMENT</span>
+          <h3>Repayment &amp; guarantee</h3>
+          <p>Centre meeting discipline, guarantor enforcement, and how early arrears are actually handled in the field.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-no">05 — RENEWAL</span>
+          <h3>Review &amp; renewal</h3>
+          <p>Loan sizing for the next cycle, graduation rules, and whether the group structure should change as members mature.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST / COMPLIANCE -->
+  <section class="trust" id="trust" aria-label="CBK compliance section">
+    <div class="wrap trust-grid">
+      <div class="reveal">
+        <span class="eyebrow">Grounded in regulation</span>
+        <h2 style="font-size:1.7rem; color:var(--ink); margin-top:14px;">Built around how CBK actually regulates microfinance</h2>
+        <p style="color:rgba(35,32,27,0.72); margin-top:14px; max-width:420px;">Recommendations are written to sit inside the Microfinance Act and CBK prudential expectations for deposit-taking and credit-only institutions — not as generic best practice imported from elsewhere.</p>
+      </div>
+      <ul class="trust-list reveal">
+        <li><span class="mark">01</span> Policy recommendations reference current CBK prudential guidelines for the relevant licence class.</li>
+        <li><span class="mark">02</span> Group lending redesigns account for CBK reporting and disclosure obligations, not just portfolio mechanics.</li>
+        <li><span class="mark">03</span> Engagements are scoped around Kenya's MFI landscape — branch structures, agent networks, and the realities of field collection.</li>
+        <li><span class="mark">04</span> Where a recommendation touches licensing or capital requirements, we flag it clearly rather than treating it as settled.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about" aria-label="About founder section">
+    <div class="wrap about-grid">
+      <div class="about-mark reveal">
+        <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <circle cx="50" cy="50" r="40" stroke="#EAB308" stroke-width="1.3"/>
+          <circle cx="50" cy="18" r="3.4" fill="#EAB308"/>
+          <circle cx="79" cy="34" r="3.4" fill="#7C5CBF"/>
+          <circle cx="79" cy="66" r="3.4" fill="#EAB308"/>
+          <circle cx="50" cy="82" r="3.4" fill="#7C5CBF"/>
+          <circle cx="21" cy="66" r="3.4" fill="#EAB308"/>
+          <circle cx="21" cy="34" r="3.4" fill="#EAB308"/>
+        </svg>
+      </div>
+      <div class="about-copy reveal">
+        <h2>Fredrick Ouma Ombima</h2>
+        <span class="role">Founder, Amara Microfinance</span>
+        <p>Ten years inside microfinance operations across Kenya, Ghana, and the DRC — branch management, group lending operations, credit performance, and growth strategy, in that order.</p>
+        <p>Amara Microfinance exists because most of the group lending problems Fredrick has fixed on the inside were never solved once — they were patched, branch by branch, by whoever was closest to the fire. This consultancy is the fix, written down and reusable.</p>
+        <div class="about-stats">
+          <div>
+            <span class="stat-num">10</span>
+            <span class="stat-label">Years in microfinance</span>
+          </div>
+          <div>
+            <span class="stat-num">3</span>
+            <span class="stat-label">Countries — KE / GH / DRC</span>
+          </div>
+          <div>
+            <span class="stat-num">5</span>
+            <span class="stat-label">Core service lines</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact" aria-label="Contact section">
+    <div class="wrap contact-grid">
+      <div class="reveal">
+        <span class="eyebrow" style="color:var(--gold);">Get in touch</span>
+        <h2>Tell us where the portfolio is hurting</h2>
+        <p class="lede">A short call is usually enough to tell whether this is a policy problem, a training problem, or an enforcement problem.</p>
+        <div class="contact-detail">
+          <a href="mailto:hello@amaramicrofinance.co.ke">hello@amaramicrofinance.co.ke</a>
+          <a href="tel:+254700000000">+254 700 000 000</a>
+          <span style="font-size:0.82rem; color:rgba(214,214,217,0.45);">Nairobi, Kenya</span>
+        </div>
+      </div>
+      <form class="reveal" id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" type="text" name="name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="org">Institution</label>
+          <input id="org" type="text" name="org" placeholder="MFI / SACCO name">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="field">
+          <label for="msg">What's going on</label>
+          <textarea id="msg" name="msg" rows="4" placeholder="Briefly describe the portfolio issue"></textarea>
+        </div>
+        <button type="submit" class="btn">Send message</button>
+        <div class="form-success" id="formSuccess">✓ Message sent — thank you. We'll be in touch soon.</div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Amara Microfinance. Nairobi, Kenya.</span>
+    <span class="mono" style="font-size:0.72rem; opacity:0.7;">CBK-aligned group lending advisory</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal animation
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Form handling with validation
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Basic validation
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      
+      if (!name || !email) {
+        alert('Please fill in your name and email.');
+        return;
+      }
+      
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+      
+      // Show success message (ready for backend integration)
+      const successMsg = document.getElementById('formSuccess');
+      successMsg.classList.add('show');
+      contactForm.style.display = 'none';
+      
+      // Reset after 5 seconds (optional)
+      setTimeout(() => {
+        contactForm.reset();
+        contactForm.style.display = 'flex';
+        successMsg.classList.remove('show');
+      }, 5000);
+      
+      // TODO: Send form data to your backend/email service
+      // Example: Formspree, EmailJS, or your own API endpoint
+      console.log({
+        name,
+        org: document.getElementById('org').value.trim(),
+        email,
+        msg: document.getElementById('msg').value.trim()
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
